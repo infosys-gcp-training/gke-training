@@ -23,16 +23,13 @@ This is a set of modules for learning about Kubernetes and Google Kubernetes Eng
 ## Useful Links
 
 #### Kubernetes Commands Cheat Sheet
-  https://kubernetes.io/docs/reference/kubectl/cheatsheet/
-
-#### Google Courses Qwiklabs Quest for Kubernetes
-  https://googlecourses.qwiklabs.com/quests/29
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
 #### Udemy Beginner Course on Kubernetes
-  https://www.udemy.com/course/learn-kubernetes/
+https://www.udemy.com/course/learn-kubernetes/
 
 #### Certified Kubernetes Administrator (CKA) course with Practice Tests
-  https://www.udemy.com/course/certified-kubernetes-administrator-with-practice-tests/
+https://www.udemy.com/course/certified-kubernetes-administrator-with-practice-tests/
 
 #### Kubernetes Certified Application Developer (CKAD) course with Tests
 https://www.udemy.com/course/certified-kubernetes-application-developer/
