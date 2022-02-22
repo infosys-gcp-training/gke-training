@@ -12,7 +12,7 @@ This is a set of modules for learning about Kubernetes and Google Kubernetes Eng
 * and hopefully more...
 
 ## Modules
-1. GKE Cluster & Nodes
+1. [GKE Cluster & Nodes](module-01/INSTRUCTIONS.md)
 1. Pods
 1. Deployments
 1. Services
