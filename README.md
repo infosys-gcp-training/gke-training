@@ -42,5 +42,3 @@ https://www.udemy.com/course/learn-docker/
 
 #### Understanding how CIDR ranges work with Nodes, Pods and Services
 https://cloud.google.com/kubernetes-engine/docs/how-to/flexible-pod-cidr
-*Don’t pay the full price, Udemy often (almost weekly) has sales at 90% off. Or you can access in Incognito mode and get the new signup code. You will probably pay ~¥1,300 - ¥2,000 per course.
-
