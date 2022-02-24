@@ -12,12 +12,13 @@ This is a set of modules for learning about Kubernetes and Google Kubernetes Eng
 * and hopefully more...
 
 ## Modules
-1. [GKE Cluster & Nodes](module-01/INSTRUCTIONS.md)
-1. Pods
-1. Deployments
-1. Services
-1. Namespaces
-1. Cloud Logging
+1. [GKE Cluster](01-gke-cluster/INSTRUCTIONS.md)
+1. [GCP VPC Network set up for GKE](02-vpc-network/INSTRUCTIONS.md)
+1. [Kubernetes Nodes](03-pods/INSTRUCTIONS.md)
+1. [Kubernetes Pods](04-pods/INSTRUCTIONS.md)
+1. [Kubernetes Deployments](05-deployments/INSTRUCTIONS.md)
+1. [Kubernetes Services](06-services/INSTRUCTIONS.md)
+1. [Cloud Logging](07-logging/INSTRUCTIONS.md)
 
 
 ## Useful Links
