@@ -1,7 +1,8 @@
 # GKE Training Module
-## Activity 01 - Clusters, Nodes, Pods & Deployments
+## Activity 01 - Clusters
+### Part 1
 
-# Activity Objective
+## Activity Objective
 
 The purpose of this activity is to learn about creating a GKE Kubernetes Clusters and how to connect to it.
 
@@ -19,10 +20,11 @@ The purpose of this activity is to learn about creating a GKE Kubernetes Cluster
 1. Click **RUN IN CLOUD SHELL**
 1. The Cloud Shell terminal will open, press “Enter” in the Cloud Shell
 
->You can also choose to copy the gcloud command. Save the command for whenever you wish to connect to the cluster, you can just reuse the command.
+You can also choose to copy the gcloud command. Save the command for whenever you wish to connect to the cluster, you can just reuse the command. \
 Ex: `gcloud container clusters get-credentials [CLUSTER_NAME] --zone [CLUSTER_ZONE] --project [PROJECT_ID]`
 
 Once connected, you use the **kubectl** command to list, view, create, update, delete resources
+> These are **imperative** commands.
 
 ## Using kubectl commands
 #### View nodes
@@ -38,8 +40,11 @@ $ kubectl get nodes –output wide
 ```
 $ kubectl get nodes -o wide  ← short form
 ```
+You should see 3 nodes.
+
 
 #### View pods
+> We have't created any pods yet so you won't see anything.
 ```
 $ kubectl get pods
 ```
@@ -47,9 +52,9 @@ $ kubectl get pods
 ```
 $ kubectl get po  ← short form
 ```
->There aren't any pods yet.
 
 #### View deployments
+> We have't created any deployments yet so you won't see anything.
 ```
 $ kubectl get deployments
 ```
@@ -57,7 +62,6 @@ $ kubectl get deployments
 ```
 $ kubectl get deploy  ← short form
 ```
->There aren't any deployments yet.
 
 #### View your cluster in the GCP Console
 1. Go to **Kubernetes Engine**
@@ -71,7 +75,7 @@ $ kubectl get deploy  ← short form
 1. Click on a workload and have a look at their details.
 
 ### Clean Up
-> If you are finished, you can delete the cluster. However, if you are going to continue with the other activities, you can ignore this step.
+> If you are finished, you can delete the cluster. However, if you are going to continue with the other activities, you can keep the cluster and ignore this step.
 1. Go to **Kubernetes Engine**
 1. Go to **Clusters**
 1. Click on the cluster to delete

@@ -13,12 +13,22 @@ This is a set of modules for learning about Kubernetes and Google Kubernetes Eng
 
 ## Modules
 1. [GKE Cluster](01-gke-cluster/INSTRUCTIONS.md)
-1. [GCP VPC Network set up for GKE](02-vpc-network/INSTRUCTIONS.md)
-1. [Kubernetes Nodes](03-pods/INSTRUCTIONS.md)
-1. [Kubernetes Pods](04-pods/INSTRUCTIONS.md)
-1. [Kubernetes Deployments](05-deployments/INSTRUCTIONS.md)
-1. [Kubernetes Services](06-services/INSTRUCTIONS.md)
-1. [Cloud Logging](07-logging/INSTRUCTIONS.md)
+1. [Kubernetes Pods](02-pods/INSTRUCTIONS.md)
+1. [Kubernetes Deployments](03-deployments/INSTRUCTIONS.md)
+1. [Kubernetes Services](04-services/INSTRUCTIONS.md)
+1. [Cloud Logging](05-logging/INSTRUCTIONS.md)
+
+## Instructions
+
+1. Open the GCP Cloud Shell
+1. Download the training files from the Github Repository
+```
+wget https://github.com/philipfischbacher/gke-training/archive/refs/heads/main.tar.gz
+``` 
+1. Extract
+```
+tar -xzvf ./main.tar.gz
+``` 
 
 
 ## Useful Links
