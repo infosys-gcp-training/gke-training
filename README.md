@@ -20,12 +20,12 @@ This is a set of modules for learning about Kubernetes and Google Kubernetes Eng
 
 ## Instructions
 
-1. Open the GCP Cloud Shell
-1. Download the training files from the Github Repository
+Open the GCP Cloud Shell
+Download the training files from the Github Repository
 ```
 wget https://github.com/philipfischbacher/gke-training/archive/refs/heads/main.tar.gz
 ``` 
-1. Extract
+Extract
 ```
 tar -xzvf ./main.tar.gz
 ``` 
