@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: challenge-2
+  labels:
+    app: challenge-2
+spec:
+  containers:
+  - name: challenge-script-2
+    image: philipfischbacher/gke-training-logging-challenge-2
+    imagePullPolicy: Always

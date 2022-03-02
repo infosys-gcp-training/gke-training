@@ -1,10 +1,10 @@
 # GKE Training Module
-## Activity 05 - Deployments
+## Activity 03 - Deployments
 ### Part 1
 
 ## Activity Objective
 
-The purpose of this activity is to learn about Kubernetes **Deployments**. By the time you are finished with this activity, you will have a better idea of **deployments** How to deploy them, how to list them and how to view their details.
+The purpose of this activity is to learn about Kubernetes **Deployments**. By the time you are finished with this activity, you will have a better idea of **deployments** How to deploy them imperatively, how to list them and how to view their details.
 
 ## Links
 * [Kubernetes Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
@@ -15,7 +15,7 @@ If you haven't already, just refer here.
 [Create a cluster](01-gke-cluster/INSTRUCTIONS.md)
 
 Once connected, you use the **kubectl** command to list, view, create, update, delete resources
-> These are **imperative** commands.
+_These are **imperative** commands._
 
 ## Using kubectl commands
 

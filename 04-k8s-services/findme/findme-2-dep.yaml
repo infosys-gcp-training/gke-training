@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: find-me-2
+  labels:
+    app: find-me-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: find-me-2
+  template:
+    metadata:
+      labels:
+        app: find-me-2
+    spec:
+      containers:
+      - name: find-me
+        image: philipfischbacher/gke-training-find-me:v2
+        imagePullPolicy: Always

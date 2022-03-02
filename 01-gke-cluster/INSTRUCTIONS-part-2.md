@@ -8,10 +8,11 @@ The purpose of this activity is to learn about creating a specific VPC Network f
 
 
 There are 2 ways of doing this:
-1. Secondary ranges created and managed by GKE.
-1. Secondary ranges created and managed by the user (you).
+1. Secondary ranges created and managed by GKE. [GKE Managed](#managed-by-gke)
+1. Secondary ranges created and managed by the user (you). [User Managed](#user-managed)
 
-#### Create VPC network
+
+#### Create a VPC network
 ```
 gcloud compute networks create gke-training-net \
     --subnet-mode=custom \
@@ -24,7 +25,7 @@ gcloud compute networks create gke-training-net \
 gcloud compute networks describe gke-training
 ```
 
-#### Create VPC subnet
+#### Create a VPC subnet
 ```
 gcloud compute networks create gke-training-subnet \
     --subnet-mode=custom \
