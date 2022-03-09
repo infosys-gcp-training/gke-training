@@ -3,8 +3,7 @@
 ### Part 1
 
 ## Activity Objective
-
-The purpose of this activity is to learn about Kubernetes **Deployments**. By the time you are finished with this activity, you will have a better idea of **deployments** How to deploy them imperatively, how to list them and how to view their details.
+The purpose of this activity is to learn about Kubernetes **Deployments**. By the time you are finished with this activity, you will have a better idea of **deployments**. How to deploy them imperatively, how to list them and how to view their details.
 
 ## Links
 * [Kubernetes Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)

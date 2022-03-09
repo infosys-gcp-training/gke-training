@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: find-me
+  labels:
+    app: find-me
+    todo: use-curl-to-find-me
+spec:
+  containers:
+  - name: find-me
+    image: philipfischbacher/gke-training-find-me:v1
+    imagePullPolicy: Always
+    ports:
+    - containerPort: 80

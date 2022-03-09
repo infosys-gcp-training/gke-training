@@ -1,5 +1,5 @@
 # GKE Training Module
-## Activity 05 - Deployments
+## Activity 03 - Deployments
 ### Part 2
 
 ## Activity Objective

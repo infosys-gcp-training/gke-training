@@ -27,37 +27,32 @@ or
 $ kubectl get nodes -o wide  ← short form
 ```
 Note all the internal and external ip addresses. How many are there in total?
+> The default node pool has 3 nodes. There should an _internal ip_ and an _external ip_ for each node. A total of 6 ips addresses. We will refer to this later.
 
-#### Create a testpod
+#### Create a pod called _testpod_
 ```
 kubectl run testpod --image nginx
 ```
 
-#### Deploy the findme deployment YAML file
+#### Deploy the _findme_ deployment YAML file
 We can use the `kubectl apply -f FILENAME` command.
 ```
-kubectl apply -f ./findme/findme-dep.yaml
+kubectl apply -f ./findme/findme.yaml
 ```
 
-#### View deployments
+#### View pods with their IP addresses
 ```
-$ kubectl get deployment
-```
-or
-```
-$ kubectl get deploy  ← short form
-```
-#### View pods
-```
-$ kubectl get pods
+$ kubectl get pods --output wide
 ```
 or
 ```
-$ kubectl get po  ← short form
+$ kubectl get po -o wide  ← short form
 ```
+
 How many pods are there?
+> You should be able to see the **testpod** pod and the **find-me** pod
 
-#### View the find-me pod
+#### View the _find-me_ pod
 ```
 $ kubectl describe pod find-me
 ```
@@ -66,15 +61,16 @@ or
 $ kubectl get pod find-me -o yaml
 ```
 
-What is the find-me pod internal IP?
+What is the **find-me** pod internal IP?
 > Better take a note!
 
-What is the find-me pod todo label value?
+What does the **find-me** pod todo label say?
+> Let's use _CURL_
 
-
-How many deployments are there?
 Note the find-me pod’s ip address
-We will refer to as [POD_IP_ADDRESS] in the next step
+> We will refer to as [POD_IP_ADDRESS] in the next step
+
+## Finding the _findme_ pod
 #### Connect to the testpod pod and CURL the find-me pod
 ```
 $ kubectl exec -it testpod – sh
@@ -82,7 +78,6 @@ $ kubectl exec -it testpod – sh
 ```
 
 What is the output?
-
 > You should see the output “You found me!”
 
 #### Type “exit” to disconnect from the pod.
@@ -90,7 +85,13 @@ What is the output?
 # exit
 ```
 
-### Connect to a ClusterIP service
+### Cluster IP service
+#### Create a ClusterIP service for the _find-me_ pod
+```
+$ kubectl expose pod find-me --name find-me-svc
+```
+> ClusterIp is the default. So if you don't specify a type, then it will be a service of type _ClusterIp_
+
 #### View the services
 ```
 $ kubectl get services
@@ -129,8 +130,25 @@ What is the output?
 # exit
 ```
 
-> So far, how many IP_ADDRESS:PORT combinations have you successfully CURLed to?
+So far, how many IP_ADDRESS:PORT combinations have you successfully CURLed to?
 
+> The answer is 2. Once to the find-me pod's IP and once to the find-me service ip.
+
+### Node Port service
+#### Create a NodePort service for the _find-me_ pod
+```
+$ kubectl expose pod find-me --name find-me-nodeport --target-port 80 --port 80 --type NodePort
+```
+> This will expose the find-me pod on each node's ip address on a specific port.
+
+#### View the services
+```
+$ kubectl get services
+```
+or
+```
+$ kubectl get svc  ← short form
+```
 #### Look at the find-me-nodeport service
 $ kubectl describe svc find-me-nodeport
  
@@ -150,9 +168,10 @@ $ kubectl exec -it testpod – sh
 ```
 
 What is the output?
-Again, you should see the output “You found me!”
+> Again, you should see the output “You found me!”
 
 #### Try with the [NODE_PORT] value
+For reaching the find-me pod on the node port we need to curl a node internal or external ip on the nodeport value.
 ```
 $ kubectl exec -it testpod – sh
 # curl [SERVICE_IP_ADDRESS]:[NODE_PORT]
@@ -160,7 +179,7 @@ $ kubectl exec -it testpod – sh
 
 
 What is the output?
-> Again, you should see the output “You found me!”
+> Did you get an error?
 
 #### Disconnect from the testpod.
 ```
@@ -168,36 +187,35 @@ What is the output?
 ```
 
 Why didn’t it work?
+> It didn’t work because for node ports we need to curl a NODE IP with the NODE_PORT.
 
-Continue to the next page for the answer.
-It didn’t work because for node ports we need to curl a NODE IP with the NODE_PORT.
-
-Connect to a NodePort service
-View the nodes
+### Connect to the find-me pod via the NodePort service
+#### View the nodes
 ```
 $ kubectl get nodes -o wide
 ```
+> Note the internal IP [INTERNAL_IP] and the external IP [EXTERNAL_IP] of the first node.
 
-Note the internal IP [INTERNAL_IP] and the external IP [EXTERNAL_IP] of the first node.
-
-First connect to the testpod
+#### First connect to the testpod
 ```
 $ kubectl exec -it testpod – sh
 ```
 
-CURL the node’s internal ip with the node port.
+#### CURL the node’s internal ip with the node port.
 ```
 # curl [INTERNAL_IP]:[NODE_PORT]
 ```
 
 What is the output?
+> Now you should see the output “You found me!”
 
-CURL the node’s external ip with the node port.
+#### CURL the node’s external ip with the node port.
 ```
 # curl [EXTERNAL_IP]:[NODE_PORT]
 ```
 
 What is the output?
+> Again, you should see the output “You found me!”
 
 Have you tried to connect to EXTERNAL_IP:NODE_PORT from your browser? What happened?
 How about by CURLing from your cloud shell terminal?
@@ -208,15 +226,30 @@ How about by CURLing from your cloud shell terminal?
 Try doing the same with the other nodes' internal and external IPs.
 
 You can access the application from your terminal and browser because services of type NodePort expose the application on the node’s IP address. If the node’s external IP address is accessible to the internet, then you don’t need to be on the Cluster network to access the application on the nodes.
+> You may have to configure your network and firewall rules to allow access to these ip addresses.
 
 So far, how many IP_ADDRESS:PORT combinations have you successfully CURLed to?
+> With a single Nodeport service, you should be able to CURL to 7 additional points.
+1. Node 1 [INTERNAL_IP]:[NODE_PORT]
+1. Node 1 [EXTERNAL_IP]:[NODE_PORT]
+1. Node 2 [INTERNAL_IP]:[NODE_PORT]
+1. Node 2 [EXTERNAL_IP]:[NODE_PORT]
+1. Node 3 [INTERNAL_IP]:[NODE_PORT]
+1. Node 3 [EXTERNAL_IP]:[NODE_PORT]
+1. [CLUSTERIP_IP:[CLUSTERIP_PORT]
 
-Type “exit” to disconnect from the testpod.
+> We are up to 9 different points that we can connect to.
+
+#### Type “exit” to disconnect from the testpod.
 ```
 # exit
 ```
-Connect to a Load Balancer service 
-View the services
+### Connect to a Load Balancer service 
+#### Create a service of type LoadBalancer
+```
+$ kubectl expose pod find-me --name find-me-loadbalancer --target-port 80 --port 80 --type LoadBalancer
+```
+
 ```
 $ kubectl get services
 ```
@@ -225,35 +258,40 @@ or
 $ kubectl get svc  ← short form
 ```
 
-Look at the find-me-lb service
-For a detailed view, you can run
+### Look at the find-me-loadbalancer service
 ```
-$ kubectl describe svc find-me-lb
+$ kubectl describe svc find-me-loadbalancer
 ```
 
 What is it’s Cluster IP address?
-We will refer to it as [CLUSTERIP_ADDRESS] in the next step.
+> We will refer to it as [CLUSTERIP_ADDRESS] in the next step.
 
 What port is available on the ClusterIP service?
-We will refer to it as [CLUSTERIP_PORT] in the next step.
+> We will refer to it as [CLUSTERIP_PORT] in the next step.
 
 What is the node port available on this service?
-We will refer to it as [NODE_PORT] in the next step.
+> We will refer to it as [NODE_PORT] in the next step.
 
 What is the external IP available on this service?
-We will refer to it as [LB_IP] in the next step.
+> We will refer to it as [LB_IP] in the next step.
 
-Remember the first Node’s [INTERNAL_IP] and [EXTERNAL_IP]? If not, just run:
+Remember the first Node’s [INTERNAL_IP] and [EXTERNAL_IP]? If not, just check again.
+
+#### View nodes with ip addresses
 ```
-$ kubectl get nodes -o wide
+$ kubectl get nodes –output wide
+```
+or
+```
+$ kubectl get nodes -o wide  ← short form
 ```
 
-First connect to the testpod
+#### Connect to the testpod
 ```
 $ kubectl exec -it testpod – sh
 ```
 
-Try the follow curl commands
+#### Try the follow curl commands
 ```
 # curl [CLUSTERIP_ADDRESS]:[CLUSTERIP_PORT]
 # curl [INTERNAL_IP]:[NODE_PORT]
@@ -265,12 +303,28 @@ What is the output?
 
 How many more combinations can you CURL?
 
+So far, how many IP_ADDRESS:PORT combinations have you successfully CURLed to?
+> With a single Loadbalancer service, you should be able to CURL to 8 additional points.
+1. [LOADBALANCER_IP]:[PORT]
+1. Node 1 [INTERNAL_IP]:[NODE_PORT]
+1. Node 1 [EXTERNAL_IP]:[NODE_PORT]
+1. Node 2 [INTERNAL_IP]:[NODE_PORT]
+1. Node 2 [EXTERNAL_IP]:[NODE_PORT]
+1. Node 3 [INTERNAL_IP]:[NODE_PORT]
+1. Node 3 [EXTERNAL_IP]:[NODE_PORT]
+1. [CLUSTERIP_IP:[CLUSTERIP_PORT]
+
+> This makes 17 different points that we can connect to in total!
+
 How many of these can you access from the browser?
 How many of these can you access by CURLing from your cloud shell terminal?
-	ex: $ curl [EXTERNAL_IP]:[NODE_PORT]
-You can access the application from your terminal and browser because services of type Loadbalancer expose the application on an external IP address. If the Loadbalancer’s external IP address is accessible to the internet, then you don’t need to be on the Cluster network to access the application.
+**ex:**
+```
+$ curl [EXTERNAL_IP]:[NODE_PORT]
+```
+> You can access the application from your terminal and browser because services of type Loadbalancer expose the application on an external IP address. If the Loadbalancer’s external IP address is accessible to the internet, then you don’t need to be on the Cluster network to access the application.
 
-Type “exit” to disconnect from the testpod.
+#### Type “exit” to disconnect from the testpod.
 ```
 # exit
 ```
@@ -302,8 +356,9 @@ Try curling the service find-me-svc-2
 $ kubectl get svc
 ```
 
-Note find-me-svc-2 IP address [SERVICE_IP_ADDRESS] and Port number [SERVICE_PORT]
-Connect to the testpod pod and CURL the find-me-svc-2 service
+> Note find-me-svc-2 IP address [SERVICE_IP_ADDRESS] and Port number [SERVICE_PORT]
+
+#### Connect to the testpod pod and CURL the find-me-svc-2 service
 ```
 $ kubectl exec -it testpod – sh
 # curl [SERVICE_IP_ADDRESS]:[SERVICE_PORT]
@@ -315,6 +370,8 @@ What is the output?
 ```
 # exit
 ```
+
+
 #### Troubleshoot
 Why didn’t it work? Let’s identify the issue by getting more details about the service.
 ```
