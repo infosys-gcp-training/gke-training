@@ -1,8 +1,7 @@
 # Kubernetes & GKE Training Modules
 
 ## Description
-
-This is a set of modules for learning about Kubernetes and Google Kubernetes Engine (GKE). You can download the modules and go through each one with GKE to learn about:
+This is a set of modules for learning about Kubernetes and Google Kubernetes Engine (GKE) through practical, on hands activities. You can download the modules and go through each one with GKE to learn about:
 * Kubernetes
 * Nodes
 * Pods
