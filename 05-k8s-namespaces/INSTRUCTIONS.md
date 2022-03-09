@@ -117,30 +117,60 @@ LOOK AT RESTRICTING PERMISSION WITH ROLE BINDINGS
 
 ~Notice that you don’t have permissions? That is the advantage of namespaces. You can limit who has access to what.~
 
-### Check your access.
+#### Check your access.
 ```
 $ kubectl auth can-i get pods
 ```
-The answer should be “yes”
+> The answer should be “yes”
+
+#### Deploy the testuser related roles
+```
+$ kubectl apply -f ./testuser 
+```
+
+#### Check the testuser's access.
+```
+$ kubectl auth can-i get pods --as testuser
+```
+> The answer should be “no”
+> The testuser does not have access to the _default_ namespace.
 
 #### Check your access to the pods in the _red_ namespace
 ```
 $ kubectl auth can-i get pods -n red
 ```
-The answer should be “yes”
+> The answer should be “yes”
+
+#### Check the testuser's access to the pods in the _red_ namespace
+```
+$ kubectl auth can-i get pods -n red --as testuser
+```
+> The answer should be “yes”
 
 #### Check your access to the pods in the _blue_ namespace
 ```
 $ kubectl auth can-i get pods -n blue
 ```
-The answer should be “yes”
+> The answer should be “yes”
+
+#### Check the testuser's access to the pods in the _blue_ namespace
+```
+$ kubectl auth can-i get pods -n blue --as testuser
+```
+> The answer should be “yes”
 
 #### Check your access to the pods in the _yellow_ namespace
 ```
 $ kubectl auth can-i get pods -n yellow
 ```
-The answer should be “no” 
+> The answer should be “yes” 
 
+#### Check the testuser's acccess to the pods in the _yellow_ namespace
+```
+$ kubectl auth can-i get pods -n yellow --as testuser
+```
+> The answer should be “no” 
+> So you can see how namespaces can be used with roles and rolebindings to grant (or indirectly limit) access to resources. 
 
 What happens if you delete a namespace?
 
@@ -158,5 +188,4 @@ or
 ```
 $ kubectl get po -n red ← short form
 ```
-
 > Note that this doesn't work anymore. The namespace and its resources are gone.
