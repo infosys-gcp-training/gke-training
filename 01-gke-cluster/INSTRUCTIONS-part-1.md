@@ -21,7 +21,10 @@ The purpose of this activity is to learn about creating a GKE Kubernetes Cluster
 1. The Cloud Shell terminal will open, press “Enter” in the Cloud Shell
 
 You can also choose to copy the gcloud command. Save the command for whenever you wish to connect to the cluster, you can just reuse the command. \
-Ex: `gcloud container clusters get-credentials [CLUSTER_NAME] --zone [CLUSTER_ZONE] --project [PROJECT_ID]`
+Ex:
+```
+gcloud container clusters get-credentials [CLUSTER_NAME] --zone [CLUSTER_ZONE] --project [PROJECT_ID]`
+```
 
 Once connected, you use the **kubectl** command to list, view, create, update, delete resources
 > These are **imperative** commands.
