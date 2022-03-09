@@ -5,10 +5,6 @@
 ## Activity Objective
 The purpose of this activity is to learn about Kubernetes **Deployments**. By the time you are finished with this activity, you will have a better idea of **deployments**. How to deploy them imperatively, how to list them and how to view their details.
 
-## Links
-* [Kubernetes Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
-* [Deployments in GKE](https://cloud.google.com/kubernetes-engine/docs/concepts/deployment)
-
 ## Create a cluster
 If you haven't already, just refer here.
 [Create a cluster](01-gke-cluster/INSTRUCTIONS.md)
@@ -40,6 +36,7 @@ $ kubectl get nodes
 > You should see 3 nodes.
 
 Let's create a deployment with 4 replicas
+
 #### Create a deployment with a nginx image
 ```
 $ kubectl create deployment nginx-dep –image nginx –replicas 4
@@ -90,4 +87,6 @@ $ kubectl delete deployment nginx-dep
 ```
 
 ## References
-[Kubernetes **deployment** Command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-deployment-em-)
+* [Kubernetes Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+* [Deployments in GKE](https://cloud.google.com/kubernetes-engine/docs/concepts/deployment)
+* [Kubernetes **deployment** Command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-deployment-em-)

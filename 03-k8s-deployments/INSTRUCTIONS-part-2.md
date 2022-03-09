@@ -6,10 +6,6 @@
 
 The purpose of this activity is to learn about Kubernetes **Deployments**. By the time you are finished with this activity, you will have a better idea of **deployments** How to deploy them declaratively, how to list them and how to view their details.
 
-## Links
-* [Kubernetes Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
-* [Deployments in GKE](https://cloud.google.com/kubernetes-engine/docs/concepts/deployment)
-
 ## Create a cluster
 If you haven't already, just refer here.
 [Create a cluster](01-gke-cluster/INSTRUCTIONS.md)
@@ -93,5 +89,7 @@ kubectl rollout history deployment/nginx-deployment --revision=2
 
 
 ## References
-[Kubernetes Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment)
-[Kubernetes **deployment** Command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-deployment-em-)
+* [Kubernetes Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment)
+* [Deployments in GKE](https://cloud.google.com/kubernetes-engine/docs/concepts/deployment)
+* [Kubernetes **deployment** Command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-deployment-em-)
+
