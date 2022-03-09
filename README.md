@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a set of modules for learning about Kubernetes and Google Kubernetes Engine (GKE). You can download modules and go through each one with GKE to learn about:
+This is a set of modules for learning about Kubernetes and Google Kubernetes Engine (GKE). You can download the modules and go through each one with GKE to learn about:
 * Kubernetes
 * Nodes
 * Pods
@@ -12,11 +12,14 @@ This is a set of modules for learning about Kubernetes and Google Kubernetes Eng
 * and hopefully more...
 
 ## Modules
-1. [GKE Cluster](01-gke-cluster/INSTRUCTIONS.md)
-1. [Kubernetes Pods](02-pods/INSTRUCTIONS.md)
-1. [Kubernetes Deployments](03-deployments/INSTRUCTIONS.md)
-1. [Kubernetes Services](04-services/INSTRUCTIONS.md)
-1. [Cloud Logging](05-logging/INSTRUCTIONS.md)
+1. [GKE Cluster](01-gke-cluster/INSTRUCTIONS-part-1.md)
+1. [VPC Networks for GKE Clusters](01-gke-cluster/INSTRUCTIONS-part-2.md)
+1. [Kubernetes Pods](02-k8s-pods/INSTRUCTIONS.md)
+1. [Kubernetes Deployments](03-k8s-deployments/INSTRUCTIONS-part-1.md)
+1. [Kubernetes Services](04-k8s-services/INSTRUCTIONS.md)
+1. [Kubernetes Namespaces](05-k8s-namespaces/INSTRUCTIONS.md)
+1. [GKE Webapp](06-gke-webapp/INSTRUCTIONS.md)
+1. [Cloud Logging](07-gke-logging/INSTRUCTIONS.md)
 
 ## Instructions
 
