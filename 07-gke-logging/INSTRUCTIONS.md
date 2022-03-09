@@ -8,7 +8,7 @@ The purpose of this activity is to learn about Cloud Logging.
 
 #### Deploy the first logging challenge
 ```
-$ kubectl apply -f ./challenge-1/challenge-1.yaml
+$ kubectl apply -f ./challenges/challenge-1.yaml
 ```
 
 Note the names
@@ -30,12 +30,12 @@ Google Cloud Console
 What do you see?
 > A lot of "hot dog is cold" messages, again, probably not what we are looking for.
 
-# Click the “X” by _Warning_
+#### Click the “X” by _Warning_
 This is to stop filtering for warning level messages
 1. Click on an entry
-1. Expand All
+1. Click **Expand All**
 1. Click on the jsonPayload -> labels -> type value (“food”)
-1. Select “Hide Matching Entries”
+1. Select **Hide Matching Entries**
 
 Notice how we filtered all the “hot dog” related entries?
 
