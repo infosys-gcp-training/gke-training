@@ -112,10 +112,10 @@ or
 $ kubectl get po -n yellow ← short form
 ```
 
-## TO DO
-LOOK AT RESTRICTING PERMISSION WITH ROLE BINDINGS
+## Granting access to a namespace
+Your account has access to all the resources on the cluster. We will create a **testuser** and using roles & rolebindings, we will grant access to some of the namespaces.
 
-~Notice that you don’t have permissions? That is the advantage of namespaces. You can limit who has access to what.~
+First let's check our own access. We can use `kubectl auth can-i [COMMAND]`.
 
 #### Check your access.
 ```
