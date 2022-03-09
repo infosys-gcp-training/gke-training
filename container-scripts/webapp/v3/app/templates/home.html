@@ -1,0 +1,100 @@
+<!doctype html>
+
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Welcome to the GKE Training</title>
+	<script src="https://cdn.jsdelivr.net/npm/fireworks-js@latest/dist/fireworks.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+<!--
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+-->
+	<style>
+		body {
+			font-family: 'Lato', sans-serif;
+		}
+		.container {
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+		.background {
+			width: 100%;
+			height: 100vh;
+			display: block;
+			/*background-color: #00264D;*/
+			background-color: {{ bkg_color }}
+		}
+		.content {
+			position: absolute;
+			top: 20%;
+			text-align:center;
+			width: 100%;
+			color: white;
+		}
+
+		.content h1 {
+			font-size: 4em;
+		}
+
+		.content p {
+			font-size: 2em;
+		}
+
+		.content p .ip_address {
+			font-size: 0.5em;
+		}
+	</style>
+  </head>
+
+  <body>
+	<div class="container">
+		<div class="background"></div>
+		<div class="content">
+			<h1>GKE Training Page</h1>
+			<p>Hello Everyone!</p>
+			<p>Welcome to the GKE training!</p>
+			<p class="ip_address">Pod Address: {{ pod_address }}</p>
+		</div>
+	</div>
+	<script>
+		const container = document.querySelector(".background");
+		const fireworks = new Fireworks(container, {
+			  rocketsPoint: 50,
+			  hue: { min: 0, max: 360 },
+			  delay: { min: 15, max: 30 },
+			  speed: 1,
+			  acceleration: 1.025,
+			  friction: 0.95,
+			  gravity: 1.5,
+			  particles: 50,
+			  trace: 3,
+			  explosion: 10,
+			  autoresize: true,
+			  brightness: { 
+				min: 50, 
+				max: 80,
+				decay: { min: 0.015, max: 0.03 }
+			  },
+			  mouse: { 
+				click: false, 
+				move: false, 
+				max: 3 
+			  },
+			  boundaries: { 
+				x: 50, 
+				y: 50, 
+				width: container.clientWidth, 
+				height: container.clientHeight 
+			  },
+			  sound: {
+				enable: false
+			  }
+		});
+		fireworks.start();
+	</script>
+  </body>
+</html>
