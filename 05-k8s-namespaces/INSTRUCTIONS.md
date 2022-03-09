@@ -1,3 +1,9 @@
+# GKE Training Module
+## Activity 05 - Namespaces
+
+## Activity Objective
+The purpose of this activity is to learn about Kubernetes **Namespaces**. By the time you are finished with this activity, you will have a better idea of **namespaces**. How to use them to organize your workloads and limit access to workloads using **namespaces**.
+
 #### View pods in the default namespace
 ```
 $ kubectl get pods
@@ -7,30 +13,99 @@ or
 $ kubectl get po  ← short form
 ```
 
-Note the names
+#### Create a namespace call **blue**
+```
+$ kubectl create namespace blue
+```
+or
+```
+$ kubectl create ns blue ← short form
+```
+
+#### Create a _nginx_ pod in the _blue_ namespace
+```
+$ kubectl run nginx-blue –-namespace blue
+```
+or
+```
+$ kubectl run nginx-blue –ns blue
+```
+
 #### View pods in the blue namespace
 ```
-$ kubectl get pods –namespace blue
+$ kubectl get pods –-namespace blue
 ```
 or
 ```
 $ kubectl get po -n blue ← short form
 ```
 
-How many pods are there?
+#### Create a _nginx_ pod in the _red_ namespace
+```
+$ kubectl run nginx-red –-namespace red
+```
+or
+```
+$ kubectl run nginx-red –ns red
+```
+> Oops, need to create the _red_ namespace first
+
+#### Create a namespaces call **red**
+```
+$ kubectl create namespace red
+```
+or
+```
+$ kubectl create ns red ← short form
+```
+
+#### Create a _nginx_ pod in the _red_ namespace
+```
+$ kubectl run nginx-red –-namespace red
+```
+or
+```
+$ kubectl run nginx-red –ns red
+```
 
 #### View pods in the _red_ namespace
 ```
-$ kubectl get pods –namespace red
+$ kubectl get pods –-namespace red
 ```
 or
 ```
 $ kubectl get po -n red ← short form
 ```
 
+#### Create a namespace call **yellow**
+```
+$ kubectl create namespace yellow
+```
+or
+```
+$ kubectl create ns yellow ← short form
+```
+
+#### Create a _nginx_ pod in the _yellow_ namespace
+```
+$ kubectl run nginx-yellow –-namespace yellow
+```
+or
+```
+$ kubectl run nginx-yellow –ns yellow
+```
+
+#### View pods in the _yellow_ namespace
+```
+$ kubectl get pods –-namespace yellow
+```
+or
+```
+$ kubectl get po -n yellow ← short form
+```
 #### View pods in the **yellow** namespace
 ```
-$ kubectl get pods –namespace yellow
+$ kubectl get pods –-namespace yellow
 ```
 or
 ```
@@ -75,4 +150,13 @@ $ kubectl delete ns red
 ```
 
 
+#### View pods in the **red** namespace
+```
+$ kubectl get pods –-namespace red
+```
+or
+```
+$ kubectl get po -n red ← short form
+```
 
+> Note that this doesn't work anymore. The namespace and its resources are gone.
