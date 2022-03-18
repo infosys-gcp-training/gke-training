@@ -7,6 +7,39 @@
 The purpose of this activity is to learn about creating a specific VPC Network for a VPC-native GKE Kubernetes Clusters. It is good to learn about how to allocate the correct range of IPs in your subnets for a GKE cluster to function properly. You can refer to this link here [IP Address Range Planning](https://cloud.google.com/kubernetes-engine/docs/concepts/alias-ips#defaults_limits).
 
 ### Understanding CIDR ranges for Nodes 
+For example: If we wanted to created a cluster that could have up to 1000 Nodes. What CIDR range would we require? \
+10.10.0.0/22
+
+This would give us 1022 Nodes.
+How do we calculate that? Well, this is the following formula.
+$$N = 2^{(32 - S)} - 4$$
+
+N - Is the number of nodes
+S - Is the CIDR range size that you need.
+> This can be confusing. For example **/32** is for a single IP address. If you try the value **/22** How many can we handle?
+
+**EX:**
+$$N = 2^{(32 - 22)} - 4$$
+$$N = 2^10 - 4$$
+$$N = 1024 - 4$$
+$$N = 1020$$
+
+> We need to remove 4 IP addresses because GCP always reserves 4 IPs in each subnet in the primary range.
+
+| Reserved IP address | Description | 
+| ------------------- | ----------- |
+| Network | First address in the primary IP range for the subnet |
+| Default gateway | Second address in the primary IP range for the subnet |
+| Second-to-last address | Second-to-last address in the primary IP range for the subnet that is reserved by Google Cloud for potential future use |
+| Broadcast | Last address in the primary IP range for the subnet |
+
+We can have a cluster with up to **1020** nodes.
+> Or can we...?
+
+### Understanding CIDR ranges for Pod IP
+Actually, there is still a second step in calculating our total Node CIDR. It is dependant on our pod CIDR range.
+
+### Understanding CIDR ranges for Nodes 
 For example: If we wanted to created a cluster that could have up to 1000 Nodes. What CIDR range would we require?
 10.10.0.0/22
 
@@ -17,25 +50,20 @@ $$N = 2^{(32 - S)} - 4$$
 N - Is the number of nodes
 S - Is the CIDR range size that you need.
 > This can be confusing. For example **/32** is for a single IP address. If you try the value **/22** How many can we handle?
-> **EX:**
+
+**EX:**
 $$N = 2^{(32 - 22)} - 4$$
 $$N = 2^10 - 4$$
 $$N = 1024 - 4$$
 $$N = 1020$$
+
 > We need to remove 4 IP addresses because GCP always reserves 4 IPs in each subnet in the primary range.
 
 | Reserved IP address | Description | Example |
 | Network | First address in the primary IP range for the subnet | 10.1.2.0 in 10.1.2.0/24 |
-| Default gateway | Second address in the primary IP range for the subnet | 10.1.2.1 in 10.1.2.0/24 | 
-| Second-to-last address | Second-to-last address in the primary IP range for the subnet that is reserved by Google Cloud for potential future use	10.1.2.254 in 10.1.2.0/24 |
-| Broadcast | Last address in the primary IP range for the subnet | 10.1.2.255 in 10.1.2.0/24
-
-We can have a cluster with up to **1020** nodes.
-> Or can we...?
-
-### Understanding CIDR ranges for Pod IP
-Actually, there is still a second step in calculating our total Node CIDR. It is dependant on our pod CIDR range.
-That is because the default maximum number of pods per node is 110. And we need to allow for 2 IPs addresses per pod, which means each node needs at least 220 IP address.
+| Default gateway | Second address in the primary IP range for the subnet | 10.1.2.1 in 10.1.2.0/24 |
+| Second-to-last address | Second-to-last address in the primary IP range for the subnet that is reserved by Google Cloud for potential future use  10.1.2.254 in 10.1.2.0/24 |
+| Broadcast | Last address in the primary IP range for the subnet | 10.1.2.255 in 10.1.2.0/24That is because the default maximum number of pods per node is 110. And we need to allow for 2 IPs addresses per pod, which means each node needs at least 220 IP address.
 
 So if we have a CIDR range of /20 for the pods.
 > **EX:**
