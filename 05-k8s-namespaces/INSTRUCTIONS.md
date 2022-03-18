@@ -135,18 +135,6 @@ $ kubectl auth can-i get pods --as testuser
 > The answer should be “no”
 > The testuser does not have access to the _default_ namespace.
 
-#### Check your access to the pods in the _red_ namespace
-```
-$ kubectl auth can-i get pods -n red
-```
-> The answer should be “yes”
-
-#### Check the testuser's access to the pods in the _red_ namespace
-```
-$ kubectl auth can-i get pods -n red --as testuser
-```
-> The answer should be “yes”
-
 #### Check your access to the pods in the _blue_ namespace
 ```
 $ kubectl auth can-i get pods -n blue
@@ -159,18 +147,19 @@ $ kubectl auth can-i get pods -n blue --as testuser
 ```
 > The answer should be “yes”
 
-#### Check your access to the pods in the _yellow_ namespace
+#### Check your access to the pods in the _red_ namespace
 ```
-$ kubectl auth can-i get pods -n yellow
+$ kubectl auth can-i get pods -n red
 ```
-> The answer should be “yes” 
+> The answer should be “yes”
 
-#### Check the testuser's acccess to the pods in the _yellow_ namespace
+#### Check the testuser's access to the pods in the _red_ namespace
 ```
-$ kubectl auth can-i get pods -n yellow --as testuser
+$ kubectl auth can-i get pods -n red --as testuser
 ```
-> The answer should be “no” 
-> So you can see how namespaces can be used with roles and rolebindings to grant (or indirectly limit) access to resources. 
+> The answer should be “no”
+The testuser does not have access to the _red_ namespace.
+So you can see how namespaces can be used with roles and rolebindings to grant (or indirectly limit) access to resources. 
 
 What happens if you delete a namespace?
 
