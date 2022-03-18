@@ -21,34 +21,33 @@ This is a set of modules for learning about Kubernetes and Google Kubernetes Eng
 1. [Cloud Logging](07-gke-logging/INSTRUCTIONS.md)
 
 ## Instructions
-
 Open the GCP Cloud Shell
 Download the training files from the Github Repository
 ```
 wget https://github.com/philipfischbacher/gke-training/archive/refs/heads/main.tar.gz
 ``` 
-Extract
+
+Extract the tar file
 ```
 tar -xzvf ./main.tar.gz
 ``` 
 
 
 ## Useful Links
-
-#### Kubernetes Commands Cheat Sheet
+**Kubernetes Commands Cheat Sheet**
 https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
-#### Udemy Beginner Course on Kubernetes
+**Udemy Beginner Course on Kubernetes**
 https://www.udemy.com/course/learn-kubernetes/
 
-#### Certified Kubernetes Administrator (CKA) course with Practice Tests
+**Certified Kubernetes Administrator (CKA) course with Practice Tests**
 https://www.udemy.com/course/certified-kubernetes-administrator-with-practice-tests/
 
-#### Kubernetes Certified Application Developer (CKAD) course with Tests
+**Kubernetes Certified Application Developer (CKAD) course with Tests**
 https://www.udemy.com/course/certified-kubernetes-application-developer/
 
-#### Learning Docker
+**Learning Docker**
 https://www.udemy.com/course/learn-docker/
 
-#### Understanding how CIDR ranges work with Nodes, Pods and Services
+**Understanding how CIDR ranges work with Nodes, Pods and Services**
 https://cloud.google.com/kubernetes-engine/docs/how-to/flexible-pod-cidr
