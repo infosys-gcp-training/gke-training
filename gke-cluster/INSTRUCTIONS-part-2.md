@@ -14,7 +14,7 @@ What CIDR range would we require? \
 This would give us 1022 Nodes.
 How do we calculate that? \
 Well, this is the following formula.
-> N = 2^{(32 - S)} - 4
+https://render.githubusercontent.com/render/math?math=N%20=%202^{(32%20-%20S)}%20-%204
 
 N - Is the number of nodes
 S - Is the CIDR range size that you need.
