@@ -16,7 +16,6 @@ How do we calculate that? \
 Well, this is the following formula. \
 ![N = 2^(32 - S) - 4](https://render.githubusercontent.com/render/math?math=N%20=%202^{%2832%20-%20S%29}%20-%204#gh-light-mode-only)
 ![N = 2^(32 - S) - 4](https://render.githubusercontent.com/render/math?math=\color{white}N%20=%202^{%2832%20-%20S%29}%20-%204#gh-dark-mode-only)
-![N = 2^(32 - S) - 4](https://render.githubusercontent.com/render/math?math=\color{grey}N%20=%202^{%2832%20-%20S%29}%20-%204#gh-light-mode-only)
 
 N - Is the number of nodes
 S - Is the CIDR range size that you need.
@@ -25,10 +24,14 @@ S - Is the CIDR range size that you need.
 > How many can we handle?
 
 **EX:**
-> N = 2^{(32 - 22)} - 4 \
-> N = 2^10 - 4 \
-> N = 1024 - 4 \
-> N = 1020 \
+![N = 2^(32 - 22) - 4](https://render.githubusercontent.com/render/math?math=N%20=%202^{%2832%20-%2022%29}%20-%204#gh-light-mode-only)
+![N = 2^(32 - 22) - 4](https://render.githubusercontent.com/render/math?math=\color{white}N%20=%202^{%2832%20-%2022%29}%20-%204#gh-dark-mode-only)
+![N = 2^10 - 4](https://render.githubusercontent.com/render/math?math=N%20=%202^{10}%20-%204#gh-light-mode-only)
+![N = 2^(32 - S) - 4](https://render.githubusercontent.com/render/math?math=\color{white}N%20=%202^{10}%20-%204#gh-dark-mode-only)
+![N = 1024 - 4](https://render.githubusercontent.com/render/math?math=N%20=%201024%20-%204#gh-light-mode-only)
+![N = 1024 - 4](https://render.githubusercontent.com/render/math?math=\color{white}N%20=%201024%20-%204#gh-dark-mode-only)
+![N = 1020](https://render.githubusercontent.com/render/math?math=N%20=%201020#gh-light-mode-only)
+![N = 1020](https://render.githubusercontent.com/render/math?math=\color{white}N%20=%201020#gh-dark-mode-only)
 
 > We need to remove 4 IP addresses because GCP always reserves 4 IPs in each subnet in the primary range.
 
