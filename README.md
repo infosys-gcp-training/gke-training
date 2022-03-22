@@ -11,14 +11,14 @@ This is a set of modules for learning about Kubernetes and Google Kubernetes Eng
 * and hopefully more...
 
 ## Modules
-1. [GKE Cluster](gke-cluster/INSTRUCTIONS-part-1.md)
-1. [VPC Networks for GKE Clusters](gke-cluster/INSTRUCTIONS-part-2.md)
-1. [Kubernetes Pods](k8s-pods/INSTRUCTIONS.md)
-1. [Kubernetes Deployments](k8s-deployments/INSTRUCTIONS-part-1.md)
-1. [Kubernetes Services](k8s-services/INSTRUCTIONS.md)
-1. [Kubernetes Namespaces](k8s-namespaces/INSTRUCTIONS.md)
-1. [GKE Webapp](gke-webapp/INSTRUCTIONS.md)
-1. [Cloud Logging](gke-logging/INSTRUCTIONS.md)
+1. [GKE Cluster](modules/gke-cluster/INSTRUCTIONS-part-1.md)
+1. [VPC Networks for GKE Clusters](modules/gke-cluster/INSTRUCTIONS-part-2.md)
+1. [Kubernetes Pods](modules/k8s-pods/INSTRUCTIONS.md)
+1. [Kubernetes Deployments](modules/k8s-deployments/INSTRUCTIONS-part-1.md)
+1. [Kubernetes Services](modules/k8s-services/INSTRUCTIONS.md)
+1. [Kubernetes Namespaces](modules/k8s-namespaces/INSTRUCTIONS.md)
+1. [GKE Webapp](modules/gke-webapp/INSTRUCTIONS.md)
+1. [Cloud Logging](modules/gke-logging/INSTRUCTIONS.md)
 
 ## Instructions
 Open the GCP Cloud Shell
