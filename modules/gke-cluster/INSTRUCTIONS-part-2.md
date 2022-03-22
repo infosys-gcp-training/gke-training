@@ -16,6 +16,7 @@ How do we calculate that? \
 Well, this is the following formula. \
 ![N = 2^(32 - S) - 4](https://render.githubusercontent.com/render/math?math=N%20=%202^{%2832%20-%20S%29}%20-%204#gh-light-mode-only)
 ![N = 2^(32 - S) - 4](https://render.githubusercontent.com/render/math?math=\color{white}N%20=%202^{%2832%20-%20S%29}%20-%204#gh-dark-mode-only)
+![N = 2^(32 - S) - 4](https://render.githubusercontent.com/render/math?math=\color{grey}N%20=%202^{%2832%20-%20S%29}%20-%204#gh-light-mode-only)
 
 N - Is the number of nodes
 S - Is the CIDR range size that you need.
