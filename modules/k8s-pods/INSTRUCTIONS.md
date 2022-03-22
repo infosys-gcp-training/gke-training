@@ -5,13 +5,10 @@
 
 The purpose of this activity is to learn about Kubernetes **Pods**. By the time you are finished with this activity, you will have a better idea of **pods**. How to deploy them, how to list them and how to view their details.
 
-## Links
-* [Kubernetes Pods](https://kubernetes.io/docs/concepts/workloads/pods/)
-* [Pods in GKE](https://cloud.google.com/kubernetes-engine/docs/concepts/pod)
 
 ## Create a cluster
 If you haven't already, just refer here.
-[Create a cluster](01-gke-cluster/INSTRUCTIONS.md)
+[Create a cluster](modules/gke-cluster/INSTRUCTIONS-part-1.md)
 
 Once connected, you use the kubectl command to list, view, create, update, delete resources
 
@@ -31,7 +28,8 @@ Let's create a pod
 $ kubectl run nginx-pod –image nginx
 ```
 > This is will create a pod with the official nginx container image pulled from the docker registry. [https://hub.docker.com/_/nginx](https://hub.docker.com/_/nginx)
-You can specify what version you want to use with tags. Ex: `kubectl run nginx-pod --image nginx:1.7`
+You can specify what version you want to use with tags. \
+Ex: `kubectl run nginx-pod --image nginx:1.7`
 
 Once you have created a pod, you will want to verify that it was created properly.
 #### Verify that it was created successfully
@@ -70,13 +68,12 @@ Note **nginx-pod**’s ip address \
 Will be referred to as [nginx-pod_IP_ADDRESS] in the next step*
 
 #### Connect to nginx-2 pod and CURL nginx-1 pod
-
 ```
 $ kubectl exec -it nginx-pod-2 – sh
 # curl [nginx-pod_IP_ADDRESS]
 ```
 Output should be the default nginx index.html page. \
-We can only access the nginx-pod from within the cluster. We will learn about how to make it accessible external in later lessons with [services](06-services/INSTRUCTIONS.md) \
+We can only access the nginx-pod from within the cluster. We will learn about how to make it accessible external in later lessons with [services](modules/k8s-services/INSTRUCTIONS.md) \
 
 Let's look at our workloads with the GCP Console UI.
 
@@ -92,6 +89,8 @@ $ kubectl delete pod nginx-pod
 $ kubectl delete pod nginx-pod-2
 ```
 
-## References
-[Kubernetes **get** command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get)
-[Kubernetes **run** command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#run)
+## Links
+* [Kubernetes **get** command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get)
+* [Kubernetes **run** command](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#run)
+* [Kubernetes Pods](https://kubernetes.io/docs/concepts/workloads/pods/)
+* [Pods in GKE](https://cloud.google.com/kubernetes-engine/docs/concepts/pod)
