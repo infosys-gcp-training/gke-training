@@ -12,7 +12,7 @@ This is a set of modules for learning about Kubernetes and Google Kubernetes Eng
 
 ## Modules
 1. [GKE Cluster](modules/gke-cluster/INSTRUCTIONS.md)
-1. [VPC Networks for GKE Clusters](modules/gke-cluster/INSTRUCTIONS.md)
+1. [VPC Networks for GKE Clusters](modules/gke-vpc-network/INSTRUCTIONS.md)
 1. [Kubernetes Pods](modules/k8s-pods/INSTRUCTIONS.md)
 1. [Kubernetes Deployments - Part 1](modules/k8s-deployments/INSTRUCTIONS-part-1.md)
 1. [Kubernetes Deployments - Part 2](modules/k8s-deployments/INSTRUCTIONS-part-2.md)
