@@ -1,6 +1,5 @@
-# GKE Training Module
-## Activity 01 - Clusters
-### Part 2
+# GKE Training Module 02
+## VPC Native Cluster Networking
 
 ## Activity Objective
 
